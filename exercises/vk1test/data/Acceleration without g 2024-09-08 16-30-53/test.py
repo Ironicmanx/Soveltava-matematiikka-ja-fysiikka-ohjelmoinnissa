@@ -6,9 +6,24 @@ raw_data_path = 'exercises/vk1test/data/Acceleration without g 2024-09-08 16-30-
 raw_data = pd.read_csv(raw_data_path)
 
 folder_path = os.path.dirname(raw_data_path)
-new_file_name = 'yhdistetty_data.csv'
-new_file_path = os.path.join(folder_path, new_file_name)
 
+
+def make_new_file_path(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    new_file_name = 'yhdistetty_data.csv'
+    new_file_path = os.path.join(folder_path, new_file_name)
+    return new_file_path
+
+folder_path = 'exercises/vk1test/data/Acceleration without g 2024-09-08 16-30-53'
+new_file_path = make_new_file_path(folder_path)
+
+# Overwrite the file if it already exists
+with open(new_file_path, 'w') as file:
+    # You can write your data to the file here
+    file.write('Your data here')
+
+print(new_file_path)
 raw_data.to_csv(new_file_path, index=False)
 
 df = pd.read_csv(new_file_path)
