@@ -10,7 +10,7 @@ def pudotus_nopeus(m,k, t):
     v = m/k*g*(1-np.exp(-k*t/m))
     return v
     
-
+# Formula for terminal velocity is v(terminal) = m/k * g where m is mass and k is drag coefficient (basically air d) and g is gravity constant (9.81 m/s^2)
 # Calculate terminal velocities for the given parameters
 terminal_velocity_1 = 5 / 1 * 9.81
 terminal_velocity_2 = 5 / 1.2 * 9.81
